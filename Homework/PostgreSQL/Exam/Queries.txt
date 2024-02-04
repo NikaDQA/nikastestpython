@@ -1,0 +1,22 @@
+
+2
+select concat ('This is ', name, ', ',
+(CASE
+WHEN gender = 'm' THEN 'he'
+ELSE 'she'
+END),
+' has email ', email) as info from students_info;
+
+3
+SELECT 'Gender information:' AS result
+UNION ALL
+SELECT 'We have ' || COUNT(*) || ' boys!' AS result
+FROM students_info
+WHERE gender = 'm'
+UNION ALL
+SELECT 'We have ' || COUNT(*) || ' girls!' AS result
+FROM students_info
+WHERE gender = 'f';
+
+5
+select name, count (*) as words from vocabulary LEFT JOIN word ON (vocabulary.id = word.vocabulary_id) GROUP BY name;
